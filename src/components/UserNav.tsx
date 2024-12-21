@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, LogOut, Loader2, X } from "lucide-react";
+import { ChevronDown, LogOut, Loader2, X, Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
 import userImage from "../../public/images/pngs/user.png";
 import { UserAvatar } from "./UserAvatar";
@@ -15,16 +15,18 @@ export function UserNav() {
   const [isLoading, setIsLoading] = useState(false);
   const [logoutError, setLogoutError] = useState("");
 
+
   const handleSignOut = async () => {
+    setIsLoading(true);
     setIsLoading(true);
     setLogoutError("");
     try {
-      await userLogout();
-
+    
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
       localStorage.removeItem("email");
       localStorage.removeItem("firstName");
+      localStorage.removeItem("user");
       localStorage.removeItem("lastName");
       router.push("/login");
     } catch (err: any) {

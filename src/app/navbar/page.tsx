@@ -37,7 +37,7 @@ const NavItem: React.FC<NavItemProps> = ({
   </div>
 );
 
-const Navbar: React.FC = () => {
+const page: React.FC = () => {
   const [isSearchVisible, setSearchVisible] = useState(false);
   const [query, setQuery] = useState<string>("");
 
@@ -57,11 +57,11 @@ const Navbar: React.FC = () => {
 
  const handleLogOut = ()=>{
 
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("isLoggedIn");
+    // localStorage.removeItem("accessToken");
+    // localStorage.removeItem("isLoggedIn");
 
    
-    router.replace("/login");
+    // router.replace("/login");
 
   }
 
@@ -116,4 +116,4 @@ const Navbar: React.FC = () => {
   );
 };
 
-export default Navbar;
+export default page;
